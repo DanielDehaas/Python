@@ -45,7 +45,7 @@ with open("evaluator-integration.log", "r") as f:
 seg_list_eval = eval_segment_map.keys()
 seg_list_base = base_segment_map.keys()
 seg_set = set(list(seg_list_base) + list(seg_list_eval))
-
+seg_list = list()
 report_dict_plus = dict()
 report_dict_minus = dict()
 
@@ -61,6 +61,10 @@ seg_list.sort()
 delta = len(report_dict_plus)
 count = len(base_segment_map.keys())
 print('Segments with added cookies: ', delta, '/', count)
+counter = 0
+for s in seg_list:
+    print('%d   %s  %d  %s' % (counter, seg_list, len(report_dict_plus[s]), report_dict_plus[s] ))
+    counter += 1
 
 
 
