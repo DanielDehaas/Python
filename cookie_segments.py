@@ -62,19 +62,16 @@ segment_set = set()
 # segment_set = set(list(eval_segment_map.keys()) + list(base_segment_map.keys()))
 
 for s in eval_segment_map.keys():
-    segment_set.update(s)
+    segment_set.add(s)
 
 for s in base_segment_map.keys():
-    segment_set.update(s)
+    segment_set.add(s)
 
 seg_list_eval = eval_segment_map.keys()
 seg_list_base = base_segment_map.keys()
 print(len(segment_set))
 print(len(eval_segment_map.keys()))
 print(len(base_segment_map.keys()))
-# count = sum(len(v) for v in base_cookie_map.values())
-# print('muthafucking: ', count)
-# for seg in segment_set
 
 for seg in eval_segment_map.keys():
     templist = set(eval_segment_map[seg]).difference(set(base_segment_map[seg]))
