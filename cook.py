@@ -1,5 +1,14 @@
 #!/usr/bin/python3
 
+import collections
+import re
+import sys
+import time
+
+
+start = time.time()
+
+
 eval_cookie_map = collections.defaultdict(list)
 base_cookie_map = collections.defaultdict(list)
 eval_segment_map = collections.defaultdict(list)
@@ -17,7 +26,7 @@ with open("evaluator-integration-baseline.log", "r") as f:
             else:
                 for seg in segments.split(", "):
                     base_segment_map[seg].append(cookie)
-                    base_cookie_map[cookie].append(segment)
+                    base_cookie_map[cookie].append(seg)
                     
 with open("evaluator-integration.log", "r") as f:
     for line in f:
@@ -29,9 +38,13 @@ with open("evaluator-integration.log", "r") as f:
             else:
                 for seg in segments.split(", "):
                     eval_segment_map[seg].append(cookie)
-                    eval_cookie_map[cookie].append(segment)
+                    eval_cookie_map[cookie].append(seg)
 
 print(len(base_cookie_map.keys()))
 print(len(eval_cookie_map.keys()))
 print(len(base_segment_map.keys()))
-print(len(eval)segment_map.keys()))
+print(len(eval_segment_map.keys()))
+
+
+end = time.time()
+print(end - start)
